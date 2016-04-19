@@ -15,6 +15,7 @@ export default class App extends Component {
         <Header />
         <SearchBar />
         <ShowList />
+        {this.props.children}
       </div>
     );
   }
