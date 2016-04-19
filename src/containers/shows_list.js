@@ -26,7 +26,7 @@ class ShowList extends Component {
       <tr key={ imdbID } onClick={ () => this.props.selectShow(show) }>
         <td><img src={ poster }/></td>
         <td>{ plot }</td>
-        <td> <Link to="/show">fasfa</Link> </td>
+        <td><div className="text-xs-right"> <Link to="/show" className="btn btn-primary" >Check</Link></div></td>
       </tr>
     );
   }

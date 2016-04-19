@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class ShowDetail extends Component {
 
@@ -9,7 +10,10 @@ class ShowDetail extends Component {
     }
 
     return (
-      <h3>Show name: {this.props.show.Title}</h3>
+      <div>
+        <h3>Show name: {this.props.show.Title}</h3>
+        <div className="text-xs-right"> <Link to="/" className="btn btn-primary">Back</Link></div>
+      </div>
     );
   }
 }
