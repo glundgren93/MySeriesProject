@@ -6,13 +6,48 @@ class ShowDetail extends Component {
 
   render() {
     if(!this.props.show) {
-      return <div>Select a Serie to get started.</div>;
+      return (
+        <div className="page-header">
+          <h3>Select a Show to get started.</h3>
+          <div className="text-xs-right"> <Link to="/" className="btn btn-primary">Back</Link></div>
+        </div>
+      );
     }
 
     return (
       <div>
-        <h3>Show name: {this.props.show.Title}</h3>
-        <div className="text-xs-right"> <Link to="/" className="btn btn-primary">Back</Link></div>
+        <div className="page-header">
+          <h3>
+            { this.props.show.Title }
+            <small> { this.props.show.imdbRating }/10
+              <span className="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </small>
+          </h3>
+            <div className="media">
+              <div className="media-left media-middle">
+                  <img className="media-object" src={ this.props.show.Poster } />
+              </div>
+              <div className="media-body">
+                <div className="panel panel-info">
+                  <div className="panel-heading">
+                    <h3 className="panel-title">Description</h3>
+                  </div>
+                  <div className="panel-body">
+                    { this.props.show.Plot }
+                  </div>
+                </div>
+                <div className="panel panel-info">
+                  <div className="panel-heading">
+                    <h3 className="panel-title">Cast</h3>
+                  </div>
+                  <div className="panel-body">
+                    { this.props.show.Actors }
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div className="text-xs-right pull-right"> <Link to="/" className="btn btn-primary">Back</Link></div>
       </div>
     );
   }
