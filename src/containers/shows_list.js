@@ -18,13 +18,22 @@ class ShowList extends Component {
   }
 
   renderShows(show){
-    const plot = show.Plot;
+
+    const plot = show.Plot != "N/A" ? show.Plot : "We didn't find a plot :(";
     const poster = show.Poster;
     const imdbID = show.imdbID;
 
+    if(show.Response == "False" || show.Plot == "N/A"){
+      return (
+        <tr>
+          <td>Show not found</td>
+        </tr>
+      );
+    }
+
     return (
       <tr key={ imdbID } onClick={ () => this.props.selectShow(show) }>
-        <td><img src={ poster }/></td>
+        <td><img src={ poster } alt="We didn't find the show poster :("/></td>
         <td>{ plot }</td>
         <td><div className="text-xs-right"> <Link to="/show" className="btn btn-primary" >Check</Link></div></td>
       </tr>
@@ -38,7 +47,7 @@ class ShowList extends Component {
           <tr>
             <th>Show</th>
             <th>Plot</th>
-            <th>Plot</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import ShowTrailerDetail from '../components/show_trailer_detail';
+import Panel from '../components/panel';
 
 class ShowDetail extends Component {
 
@@ -9,7 +11,7 @@ class ShowDetail extends Component {
       return (
         <div className="page-header">
           <h3>Select a Show to get started.</h3>
-          <div className="text-xs-right"> <Link to="/" className="btn btn-primary">Back</Link></div>
+          <div className="text-xs-right pull-right"> <Link to="/" className="btn btn-primary">Back</Link></div>
         </div>
       );
     }
@@ -24,24 +26,18 @@ class ShowDetail extends Component {
             </small>
           </h3>
             <div className="media">
-              <div className="media-left media-middle">
-                  <img className="media-object" src={ this.props.show.Poster } />
+              <div className="media-left media-top">
+                  <img className="media-object img-thumbnail" src={ this.props.show.Poster } />
               </div>
               <div className="media-body">
+                <Panel  title="Description" body={ this.props.show.Plot }/>
+                <Panel  title="Cast" body={ this.props.show.Actors }/>
                 <div className="panel panel-info">
                   <div className="panel-heading">
-                    <h3 className="panel-title">Description</h3>
+                    <h3 className="panel-title">Trailer</h3>
                   </div>
                   <div className="panel-body">
-                    { this.props.show.Plot }
-                  </div>
-                </div>
-                <div className="panel panel-info">
-                  <div className="panel-heading">
-                    <h3 className="panel-title">Cast</h3>
-                  </div>
-                  <div className="panel-body">
-                    { this.props.show.Actors }
+                    <ShowTrailerDetail show={this.props.show.Title}/>
                   </div>
                 </div>
               </div>
