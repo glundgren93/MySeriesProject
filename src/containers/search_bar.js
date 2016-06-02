@@ -48,9 +48,11 @@ class SearchBar extends Component {
 }
 
 // Anything returned from this function will end up as props on ShowList
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchShows }, dispatch);
-}
+const mapDispatchToProps = (dispatch) => ({
+  fetchShows(term) {
+   dispatch(fetchShows(term));
+  }
+})
 
 // Connects a React component to a Redux store
 export default connect(null, mapDispatchToProps)(SearchBar);

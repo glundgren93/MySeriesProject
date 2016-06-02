@@ -64,15 +64,17 @@ const mapStateToProps = ({ shows })  => {
 }
 
 // Anything returned from this function will end up as props on SeriesList Container
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => ({
   /*
     Whenever selectSeries is called the result should be passed to all of our reducers.
     The only part of the application that cares about the returned value from selectSeries
     are the reducers, so we use bindActionCreators to make sure that the returned value
     flows to all reducers.
   */
-  return bindActionCreators( { selectShow }, dispatch);
-}
+  selectShow(show) {
+   dispatch(selectShow(show));
+  }
+})
 
 // Connects a React component to a Redux store
 export default connect(mapStateToProps, mapDispatchToProps)(ShowList);
