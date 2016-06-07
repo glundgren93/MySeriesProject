@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOT_URL = 'http://www.omdbapi.com/?y=&plot=full&r=json&type=series';
+export const ROOT_URL = 'http://www.omdbapi.com/?y=&plot=full&r=json&type=series';
 
 export const FETCH_SHOWS = 'FETCH_SHOWS';
 export const SELECTED_SHOW = 'SELECTED_SHOW';
