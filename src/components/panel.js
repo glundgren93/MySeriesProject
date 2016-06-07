@@ -7,7 +7,6 @@ export default class Panel extends Component {
   }
 
   render() {
-
     return (
       <div className="panel panel-info">
         <div className="panel-heading">

@@ -1,13 +1,13 @@
 import expect from 'expect';
 import axios from 'axios';
-
+import * as types from '../../src/constants';
 import * as actions from '../../src/actions/index';
 
 describe('actions', () => {
   it('should create an action to select a show', () => {
     const show = 'Lost';
     const expectedAction = {
-      type: actions.SELECTED_SHOW,
+      type: types.SELECTED_SHOW,
       payload: show
     };
 
@@ -20,7 +20,7 @@ describe('actions', () => {
     const request = axios.get(url);
 
     const expectedAction = {
-      type: actions.FETCH_SHOWS,
+      type: types.FETCH_SHOWS,
       payload: request
     };
 

@@ -49,10 +49,8 @@ class ShowDetail extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => ({
     show: state.selectedShow
-  }
-}
+})
 
 export default connect(mapStateToProps)(ShowDetail);
